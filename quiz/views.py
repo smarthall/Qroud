@@ -7,6 +7,7 @@ from quiz.models import Question
 def doquiz(request):
     lastmonth = date.today() - timedelta(days=30)
     try:
+        # This doesn't offer the best performance, tune later
         question = Question.objects.filter(Q(used__lte=lastmonth) | Q(used__isnull=True)).order_by('?')[0]
     except IndexError as e:
         return render_to_response('quiz_noquestions.html', {})
