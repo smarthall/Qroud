@@ -5,3 +5,4 @@ urlpatterns = patterns('',
     url(r'^newquestion$', 'quiz.views.newquestion'),
     url(r'^answer/(?P<question_id>\d+)/$', 'quiz.views.answer'),
 )
+
