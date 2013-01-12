@@ -3,6 +3,8 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+USE_X_FORWARDED_HOST = True
+
 ADMINS = (
     ('Daniel Hall', 'daniel@danielhall.me'),
 )
