@@ -1,0 +1,13 @@
+<h1>Qroud Question</h1>
+{{ question.question|escape|linebreaks }}
+<p>
+<sub>Question by: {{ question.user|escape }}</sub><br />
+{% if showanswer %}
+<strong>{{ question.answer|escape }}</strong><br />
+{% endif %}
+{% if not showanswer %}
+<a href='/quiz/answer/{{ question.id }}'>Get Answer</a> | 
+{% endif %}
+<a href='/quiz/doquiz'>Another Question</a> | 
+<a href='/'>Home</a>
+</p>
