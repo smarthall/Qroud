@@ -1,4 +1,6 @@
-import os
+import os, sys
+
+sys.path.append('/opt/apps/Qroud')
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
