@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'quiz.views.index'),
-    url(r'^quiz/', include('Qroud.quiz.urls')),
+    url(r'^quiz/', include('quiz.urls')),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
