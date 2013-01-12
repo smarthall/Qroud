@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 from django.forms import ModelForm
 
 # Create your models here.
@@ -12,6 +13,9 @@ class Question(models.Model):
 
     def __unicode__(self):
         return self.question
+
+class QuestionAdmin(admin.ModelAdmin):
+    list_display = ('question', 'user', 'used')
 
 class NewQuestionForm(ModelForm):
     class Meta:
