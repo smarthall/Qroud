@@ -5,8 +5,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'Qroud.quiz.views.index'),
-    url(r'^quiz/', include('Qroud.quiz.urls')),
+    url(r'^$', 'quiz.views.index'),
+    url(r'^quiz/', include('quiz.urls')),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
