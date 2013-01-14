@@ -3,10 +3,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404, render
 from django.db.models import Q
 from quiz.models import Question, NewQuestionForm
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render_to_response('quiz_index.html', {})
 
+@login_required()
 def doquiz(request):
     lastmonth = date.today() - timedelta(days=30)
     try:
