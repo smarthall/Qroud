@@ -7,6 +7,8 @@
 {% endif %}
 {% if not showanswer %}
 <a href='/quiz/answer/{{ question.id }}'>Get Answer</a> | 
+{% else %}
+<a href='/quiz/dispute/{{ question.id }}'>Dispute</a> | 
 {% endif %}
 <a href='/quiz/doquiz'>Another Question</a> | 
 <a href='/'>Home</a>

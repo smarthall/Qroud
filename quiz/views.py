@@ -2,7 +2,7 @@ from datetime import date, timedelta
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404, render
 from django.db.models import Q
-from quiz.models import Question, NewQuestionForm
+from quiz.models import Question, NewQuestionForm, DisputeForm
 from django.contrib.auth.decorators import login_required
 
 def index(request):
@@ -30,7 +30,24 @@ def newquestion(request):
 
     return render(request, 'quiz_newquestion.html', {'form': form})
 
+def dispute(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    if request.method == 'POST':
+        form = DisputeForm(request.POST)
+        if form.is_valid():
+            question.flagged = True
+            question.flagreason = form.cleaned_data['flagreason']
+            question.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = DisputeForm()
+
+    return render(request, 'quiz_dispute.html',
+                          {'form': form,
+                           'question': question})
+
 def answer(request, question_id):
+
     question = get_object_or_404(Question, pk=question_id)
     question.used = date.today()
     question.save()

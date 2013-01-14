@@ -1,0 +1,10 @@
+<h1>Qroud Dispute</h1>
+{{ question.question|escape|linebreaks }}
+<p>
+<sub>Question by: {{ question.user|escape }}</sub><br />
+<strong>{{ question.answer|escape }}</strong><br />
+<form action="/quiz/dispute/{{ question.id }}/" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" /> | <a href='/'>Home</a>
+</form>
+</p>
