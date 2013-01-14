@@ -10,17 +10,18 @@ class Question(models.Model):
     user = models.CharField(max_length=30)
     added = models.DateField('date added', auto_now_add=True)
     used = models.DateField('date last used', null=True, blank=True)
+    flagged = models.BooleanField()
 
     def __unicode__(self):
         return self.question
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('question', 'user', 'used')
+    list_display = ('question', 'user', 'used', 'flagged')
 
 class NewQuestionForm(ModelForm):
     class Meta:
         model = Question
-        exclude = ['used',]
+        exclude = ['used','flagged',]
 
 
 
