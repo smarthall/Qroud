@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 <h1>Qroud Question</h1>
 {{ question.question|escape|linebreaks }}
 <p>
@@ -13,3 +16,6 @@
 <a href='/quiz/doquiz'>Another Question</a> | 
 <a href='/'>Home</a>
 </p>
+{% endblock %}
+
+
