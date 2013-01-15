@@ -9,12 +9,12 @@
 <strong>{{ question.answer|escape }}</strong><br />
 {% endif %}
 {% if not showanswer %}
-<a href='/quiz/answer/{{ question.id }}'>Get Answer</a> | 
+<a class="btn btn-success" href='/quiz/answer/{{ question.id }}'>Get Answer</a> 
 {% else %}
-<a href='/quiz/dispute/{{ question.id }}'>Dispute</a> | 
+<a class="btn btn-danger" href='/quiz/dispute/{{ question.id }}'>Dispute</a> 
 {% endif %}
-<a href='/quiz/doquiz'>Another Question</a> | 
-<a href='/'>Home</a>
+<a class="btn btn-primary" href='/quiz/doquiz'>Another Question</a> 
+<a class="btn btn-inverse" href='/'>Home</a>
 </p>
 {% endblock %}
 
