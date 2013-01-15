@@ -19,7 +19,7 @@
 </table>
 
 <input class="btn btn-primary" type="submit" value="Login" />
-<input type="hidden" name="next" value="{{ next }}" />
+<input type="hidden" name="next" value="{{ next|default:"/"}}" />
 </form>
 {% endblock %}
 
