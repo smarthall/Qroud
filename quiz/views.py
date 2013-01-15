@@ -1,12 +1,12 @@
 from datetime import date, timedelta
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response, get_object_or_404, render
+from django.shortcuts import get_object_or_404, render
 from django.db.models import Q
 from quiz.models import Question, NewQuestionForm, DisputeForm
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    return render_to_response('quiz_index.html', {})
+    return render(request, 'quiz_index.html', {})
 
 @login_required()
 def doquiz(request):
@@ -15,8 +15,8 @@ def doquiz(request):
         # This doesn't offer the best performance, tune later
         question = Question.objects.filter(flagged=False).filter(Q(used__lte=lastmonth) | Q(used__isnull=True)).order_by('?')[0]
     except IndexError as e:
-        return render_to_response('quiz_noquestions.html', {})
-    return render_to_response('quiz_details.html',
+        return render(request, 'quiz_noquestions.html', {})
+    return render(request, 'quiz_details.html',
                              {'question': question, 'showanswer': False})
 
 def newquestion(request):
@@ -51,6 +51,6 @@ def answer(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     question.used = date.today()
     question.save()
-    return render_to_response('quiz_details.html',
+    return render(request, 'quiz_details.html',
                              {'question': question, 'showanswer': True})
 
