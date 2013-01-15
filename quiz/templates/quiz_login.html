@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1>Qroud Login</h1>
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
-<p>For an account please contact daniel AT danielhall DOT me.</p>
+<p>At the moment Qroud is undergoing a closed alpha test, for an account please contact daniel AT danielhall DOT me.</p>
 <form method="post" action="/accounts/login/">
 {% csrf_token %}
 <table>
@@ -18,7 +19,7 @@
 </tr>
 </table>
 
-<input type="submit" value="login" />
+<input class="btn btn-primary" type="submit" value="Login" /> <a class="btn btn-inverse" href='/'>Home</a>
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 {% endblock %}
