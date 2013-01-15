@@ -4,7 +4,7 @@
 <h1>Qroud Contribution</h1>
 <form action="/quiz/newquestion" method="post">{% csrf_token %}
 {{ form.as_p }}
-<input type="submit" value="Submit" /> | <a href='/'>Home</a>
+<input class="btn btn-primary" type="submit" value="Submit" /> <a class="btn btn-inverse" href='/'>Home</a>
 </form>
 {% endblock %}
 
