@@ -12,15 +12,16 @@
     <div class="navbar-inner">
       <a class="brand" href="/">Qroud</a>
 {% if user.is_authenticated %}
-    <p class="pull-right navbar-text">Welcome, {{ user.username }}. <a class="btn" href="/accounts/logout/">Logout</a></p>
+    <p class="pull-right navbar-text hidden-phone">Welcome, {{ user.username }}. <a class="btn" href="/accounts/logout/">Logout</a></p>
+    <p class="pull-right navbar-text visible-phone"><a class="btn" href="/accounts/logout/">Logout</a></p>
 {% else %}
-      <form class="navbar-form navbar-text pull-right visible-desktop" method="post" action="/accounts/login/">{% csrf_token %}
+      <form class="navbar-form navbar-text pull-right hidden-phone" method="post" action="/accounts/login/">{% csrf_token %}
         User: <input id="id_username" type="text" name="username" maxlength="30" class="span1" />
         Pass: <input type="password" name="password" id="id_password" class="span1" />
          <input type="hidden" name="next" value="/" />
         <button type="submit" class="btn">Login</button>
       </form>
-      <a class="btn hidden-desktop pull-right" href="/accounts/login">Login</a>
+      <a class="btn visible-phone pull-right" href="/accounts/login">Login</a>
 {% endif %}
     </div>
   </div>
